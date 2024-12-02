@@ -1,0 +1,25 @@
+﻿@model IEnumerable<dynamic>
+
+<h1>Carrinho de Compras</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.cupcake.Nome</td>
+                <td>@item.item.Quantidade</td>
+                <td>@(item.cupcake.Preco * item.item.Quantidade).ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button onclick="location.href='/finalizar-compra'">Finalizar Compra</button>

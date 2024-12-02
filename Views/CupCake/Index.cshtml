@@ -1,0 +1,18 @@
+﻿@model IEnumerable<HappyCakes.Models.CupCake>
+
+<div class="cupcake-list">
+    @foreach (var cupcake in Model)
+    {
+        <div class="card">
+            <img src="@cupcake.ImagemUrl" alt="@cupcake.Nome" class="card-img">
+            <h3>@cupcake.Nome</h3>
+            <p>@cupcake.Descricao</p>
+            <p><strong>Preço:</strong> @cupcake.Preco.ToString("C")</p>
+            <form asp-action="Adicionar" method="post" asp-controller="Carrinho">
+                <input type="hidden" name="cupcakeId" value="@cupcake.Id" />
+                <input type="number" name="quantidade" min="1" value="1" />
+                <button type="submit" class="btn btn-primary">Adicionar ao Carrinho</button>
+            </form>
+        </div>
+    }
+</div>
